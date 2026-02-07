@@ -1,4 +1,7 @@
+import * as React from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { projectTitleToImage } from "@/components/aec/project-media";
+import { ProjectDetailsDialog, type ProjectDetails } from "@/components/aec/ProjectDetailsDialog";
 
 type ProjectCategory = {
   title: string;
@@ -148,33 +151,78 @@ const categories: ProjectCategory[] = [
   },
 ];
 
-function ProjectItem({ title, location, stage }: { title: string; location: string; stage: string }) {
+function ProjectItem({
+  title,
+  location,
+  stage,
+  onOpen,
+}: {
+  title: string;
+  location: string;
+  stage: string;
+  onOpen: () => void;
+}) {
   return (
-    <Card className="shadow-none break-inside-avoid">
-      <CardContent className="p-6">
-        <div className="text-sm font-semibold">{title}</div>
-        <div className="mt-2 text-sm text-muted-foreground">
-          <div>Location – {location}</div>
-          <div>Stage – {stage}</div>
-        </div>
-      </CardContent>
-    </Card>
+    <button type="button" onClick={onOpen} className="text-left">
+      <Card className="shadow-none break-inside-avoid transition-[transform,box-shadow,border-color] hover:-translate-y-0.5 hover:shadow-md hover:border-primary/30">
+        <CardContent className="p-6">
+          <div className="text-sm font-semibold text-foreground">{title}</div>
+          <div className="mt-2 text-sm text-muted-foreground">
+            <div>Location – {location}</div>
+            <div>Stage – {stage}</div>
+          </div>
+          <div className="mt-4 text-xs font-semibold tracking-[0.18em] uppercase text-primary">
+            View details
+          </div>
+        </CardContent>
+      </Card>
+    </button>
   );
 }
 
 export function ProjectsList() {
+  const [open, setOpen] = React.useState(false);
+  const [selected, setSelected] = React.useState<ProjectDetails | null>(null);
+
+  const openProject = React.useCallback((p: { title: string; location: string; stage: string }) => {
+    setSelected({
+      title: p.title,
+      location: p.location,
+      stage: p.stage,
+      imageSrc: projectTitleToImage[p.title],
+    });
+    setOpen(true);
+  }, []);
+
   return (
-    <div className="space-y-10">
-      {categories.map((cat) => (
-        <section key={cat.title} aria-label={cat.title}>
-          <h3 className="text-sm font-semibold tracking-[0.14em] uppercase text-primary">{cat.title}</h3>
-          <div className="mt-4 grid gap-4 md:grid-cols-2">
-            {cat.projects.map((p) => (
-              <ProjectItem key={`${cat.title}-${p.title}`} title={p.title} location={p.location} stage={p.stage} />
-            ))}
-          </div>
-        </section>
-      ))}
-    </div>
+    <>
+      <div className="space-y-10">
+        {categories.map((cat) => (
+          <section key={cat.title} aria-label={cat.title}>
+            <h3 className="text-sm font-semibold tracking-[0.14em] uppercase text-primary">{cat.title}</h3>
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
+              {cat.projects.map((p) => (
+                <ProjectItem
+                  key={`${cat.title}-${p.title}`}
+                  title={p.title}
+                  location={p.location}
+                  stage={p.stage}
+                  onOpen={() => openProject(p)}
+                />
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+
+      <ProjectDetailsDialog
+        open={open}
+        onOpenChange={(next) => {
+          setOpen(next);
+          if (!next) setSelected(null);
+        }}
+        project={selected}
+      />
+    </>
   );
 }
