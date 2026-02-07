@@ -32,7 +32,7 @@ export function HeroSection() {
             className="absolute inset-0 h-full w-full object-cover opacity-[0.08]"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-background/80" />
+          <div className="absolute inset-0 bg-background/60" />
         </div>
 
         <div className="relative">
