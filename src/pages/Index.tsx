@@ -36,13 +36,13 @@ const Index = () => {
         {/* 2) INTRODUCTION */}
         <FadeIn>
           <Section id="introduction" title="INTRODUCTION">
-            <div className="max-w-4xl space-y-4 text-sm leading-relaxed text-muted-foreground">
+            <div className="space-y-6 text-base leading-relaxed text-foreground/80">
               <p>
                 AEC is an Engineering Consultancy, established and operating in United Arab Emirates (UAE). We provide complete
                 solution in architectural, structural and MEP engineering as per the client’s requirement to provide the
                 highest value.
               </p>
-              <p>
+              <p className="border-l-2 border-primary/40 pl-5 text-sm leading-relaxed text-foreground/70">
                 AEC comprises exceptionally skilled and experienced staff with expertise in engineering design and project
                 management. Our team follows a design orientated methodology backed by stringent project management to ensure
                 we deliver the projects on time and as per client’s expectations.
@@ -54,16 +54,39 @@ const Index = () => {
         {/* 3) ABOUT US */}
         <FadeIn>
           <Section id="about" title="ABOUT US" tone="muted">
-            <div className="max-w-4xl space-y-4 text-sm leading-relaxed text-muted-foreground">
-              <p>
-                AEC has been established by a group of competent professionals involved in the industry for the past 20 years,
-                having vast experience in Building Design, Industrial Design & Construction and Project Management.
-              </p>
-              <p>Customer focus and professionalism is at the heart of our business.</p>
-              <p>
-                Through passionate efforts and teamwork, we deliver high-quality results thereby maintaining high level of
-                integrity.
-              </p>
+            <div className="space-y-8">
+              <div className="space-y-5 text-base leading-relaxed text-foreground/80">
+                <p>
+                  AEC has been established by a group of competent professionals involved in the industry for the past 20
+                  years, having vast experience in Building Design, Industrial Design & Construction and Project Management.
+                </p>
+
+                <div className="rounded-lg border border-border bg-card/80 p-5">
+                  <p className="text-base font-medium leading-relaxed text-primary">
+                    Customer focus and professionalism is at the heart of our business.
+                  </p>
+                </div>
+
+                <p>
+                  Through passionate efforts and teamwork, we deliver high-quality results thereby maintaining high level of
+                  integrity.
+                </p>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-3">
+                <div className="break-inside-avoid rounded-lg border border-border bg-card p-5">
+                  <div className="text-2xl font-semibold tracking-tight text-foreground">20+</div>
+                  <div className="mt-1 text-sm text-muted-foreground">Years industry experience</div>
+                </div>
+                <div className="break-inside-avoid rounded-lg border border-border bg-card p-5">
+                  <div className="text-2xl font-semibold tracking-tight text-foreground">100+</div>
+                  <div className="mt-1 text-sm text-muted-foreground">Projects delivered</div>
+                </div>
+                <div className="break-inside-avoid rounded-lg border border-border bg-card p-5">
+                  <div className="text-2xl font-semibold tracking-tight text-foreground">UAE</div>
+                  <div className="mt-1 text-sm text-muted-foreground">& Middle East presence</div>
+                </div>
+              </div>
             </div>
           </Section>
         </FadeIn>
