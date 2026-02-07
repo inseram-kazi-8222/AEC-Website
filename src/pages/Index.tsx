@@ -93,12 +93,14 @@ const Index = () => {
 
               <div className="relative overflow-hidden rounded-xl border border-border bg-card shadow-sm">
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-transparent" />
-                <img
-                  src={aboutBanner}
-                  alt="AEC engineering consultants banner"
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
+                <div className="relative aspect-[16/10] w-full">
+                  <img
+                    src={aboutBanner}
+                    alt="AEC engineering consultants banner"
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           </Section>
