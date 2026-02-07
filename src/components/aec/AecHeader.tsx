@@ -1,14 +1,24 @@
 import * as React from "react";
-import { Menu } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { type SectionLink, useActiveSection } from "@/hooks/use-active-section";
 
 interface AecHeaderProps {
-  links: SectionLink[];
+  primaryLinks: SectionLink[];
+  moreLinks?: SectionLink[];
 }
 
 function scrollToId(id: string) {
@@ -17,24 +27,46 @@ function scrollToId(id: string) {
   el.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-export function AecHeader({ links }: AecHeaderProps) {
+export function AecHeader({ primaryLinks, moreLinks = [] }: AecHeaderProps) {
   const isMobile = useIsMobile();
-  const activeId = useActiveSection(links);
+  const allLinks = React.useMemo(() => [...primaryLinks, ...moreLinks], [primaryLinks, moreLinks]);
+  const activeId = useActiveSection(allLinks);
+
+  const [scrolled, setScrolled] = React.useState(false);
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const linkBase =
+    "relative px-1 py-2 text-xs font-semibold tracking-[0.18em] uppercase transition-colors text-muted-foreground hover:text-foreground";
+  const underline =
+    "after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:scale-x-100";
+  const active = "text-primary after:scale-x-100";
 
   return (
-    <header className="aec-header sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/70">
-      <div className="container flex h-16 items-center justify-between gap-6">
+    <header
+      className={cn(
+        "aec-header sticky top-0 z-50 w-full border-b border-border bg-background/95 supports-[backdrop-filter]:bg-background/85 backdrop-blur transition-all",
+        scrolled ? "shadow-sm" : "shadow-none",
+      )}
+    >
+      <div className={cn("container flex items-center justify-between", scrolled ? "h-16" : "h-20")}
+        style={{ transition: "height 200ms ease" }}
+      >
         <a
           href="#hero"
           onClick={(e) => {
             e.preventDefault();
             scrollToId("hero");
           }}
-          className="group flex items-baseline gap-3 min-w-0"
+          className="flex flex-col leading-none"
           aria-label="Go to top"
         >
-          <span className="text-base font-semibold tracking-[0.28em] text-primary">AEC</span>
-          <span className="hidden sm:inline text-xs tracking-[0.22em] uppercase text-muted-foreground group-hover:text-foreground transition-colors">
+          <span className="text-lg font-semibold tracking-[0.22em] text-primary">AEC</span>
+          <span className="mt-1 text-[11px] font-semibold tracking-[0.18em] uppercase text-muted-foreground">
             Agile Engineering Consultants
           </span>
         </a>
@@ -50,8 +82,9 @@ export function AecHeader({ links }: AecHeaderProps) {
               <div className="p-6">
                 <div className="text-sm font-semibold tracking-[0.18em] uppercase text-primary">Navigation</div>
                 <Separator className="my-4" />
+
                 <nav className="grid gap-2">
-                  {links.map((l) => (
+                  {primaryLinks.map((l) => (
                     <a
                       key={l.id}
                       href={`#${l.id}`}
@@ -60,20 +93,50 @@ export function AecHeader({ links }: AecHeaderProps) {
                         scrollToId(l.id);
                       }}
                       className={cn(
-                        "rounded-md px-3 py-2 text-sm transition-colors",
-                        l.id === activeId ? "bg-accent text-accent-foreground" : "hover:bg-accent",
+                        "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                        l.id === activeId ? "bg-accent text-foreground" : "hover:bg-accent",
                       )}
                     >
                       {l.label}
                     </a>
                   ))}
+
+                  {moreLinks.length ? (
+                    <Accordion type="single" collapsible className="mt-2">
+                      <AccordionItem value="more" className="border-b-0">
+                        <AccordionTrigger className="rounded-md px-3 py-2 text-sm font-medium hover:no-underline hover:bg-accent">
+                          More
+                        </AccordionTrigger>
+                        <AccordionContent className="pt-2">
+                          <div className="grid gap-1">
+                            {moreLinks.map((l) => (
+                              <a
+                                key={l.id}
+                                href={`#${l.id}`}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  scrollToId(l.id);
+                                }}
+                                className={cn(
+                                  "rounded-md px-3 py-2 text-sm transition-colors",
+                                  l.id === activeId ? "bg-accent text-foreground" : "hover:bg-accent",
+                                )}
+                              >
+                                {l.label}
+                              </a>
+                            ))}
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  ) : null}
                 </nav>
               </div>
             </SheetContent>
           </Sheet>
         ) : (
-          <nav className="hidden lg:flex items-center gap-1">
-            {links.map((l) => (
+          <nav className="hidden lg:flex items-center gap-8">
+            {primaryLinks.map((l) => (
               <a
                 key={l.id}
                 href={`#${l.id}`}
@@ -81,16 +144,46 @@ export function AecHeader({ links }: AecHeaderProps) {
                   e.preventDefault();
                   scrollToId(l.id);
                 }}
-                className={cn(
-                  "rounded-md px-3 py-2 text-xs tracking-[0.16em] uppercase transition-colors",
-                  l.id === activeId
-                    ? "bg-accent text-accent-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-accent",
-                )}
+                className={cn(linkBase, underline, l.id === activeId && active)}
               >
                 {l.label}
               </a>
             ))}
+
+            {moreLinks.length ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button
+                    type="button"
+                    className={cn(
+                      linkBase,
+                      underline,
+                      moreLinks.some((l) => l.id === activeId) && active,
+                      "inline-flex items-center gap-1",
+                    )}
+                    aria-label="Open more navigation links"
+                  >
+                    More <ChevronDown className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="z-50 w-56 bg-popover">
+                  {moreLinks.map((l, idx) => (
+                    <React.Fragment key={l.id}>
+                      <DropdownMenuItem
+                        onSelect={(e) => {
+                          e.preventDefault();
+                          scrollToId(l.id);
+                        }}
+                        className={cn("cursor-pointer", l.id === activeId && "text-primary")}
+                      >
+                        {l.label}
+                      </DropdownMenuItem>
+                      {idx === 0 ? <DropdownMenuSeparator /> : null}
+                    </React.Fragment>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : null}
           </nav>
         )}
       </div>
