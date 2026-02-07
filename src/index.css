@@ -111,6 +111,15 @@ All colors MUST be HSL.
   h3 {
     letter-spacing: 0.02em;
   }
+
+  /* Subtle engineering blueprint grid (used on alternate sections) */
+  .aec-blueprint {
+    background-image:
+      linear-gradient(to right, hsl(var(--primary) / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--primary) / 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    background-position: top left;
+  }
 }
 
 @media print {
