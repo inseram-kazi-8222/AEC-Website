@@ -1,6 +1,8 @@
 import * as React from "react";
 import { Menu, ChevronDown } from "lucide-react";
 
+import logoMark from "@/assets/aec-logo-mark.png";
+
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
@@ -53,7 +55,8 @@ export function AecHeader({ primaryLinks, moreLinks = [] }: AecHeaderProps) {
         scrolled ? "shadow-sm" : "shadow-none",
       )}
     >
-      <div className={cn("container flex items-center justify-between", scrolled ? "h-16" : "h-20")}
+      <div
+        className={cn("container flex items-center justify-between", scrolled ? "h-16" : "h-20")}
         style={{ transition: "height 200ms ease" }}
       >
         <a
@@ -62,12 +65,24 @@ export function AecHeader({ primaryLinks, moreLinks = [] }: AecHeaderProps) {
             e.preventDefault();
             scrollToId("hero");
           }}
-          className="flex flex-col leading-none"
-          aria-label="Go to top"
+          className="flex items-center gap-3"
+          aria-label="Agile Engineering Consultants (AEC) — Go to top"
         >
-          <span className="text-lg font-semibold tracking-[0.22em] text-primary">AEC</span>
-          <span className="mt-1 text-[11px] font-semibold tracking-[0.18em] uppercase text-muted-foreground">
-            Agile Engineering Consultants
+          <img
+            src={logoMark}
+            alt="AEC logo mark"
+            className={cn(
+              "h-10 w-10 shrink-0 object-contain transition-[width,height] duration-200",
+              scrolled ? "h-9 w-9" : "h-10 w-10",
+            )}
+            loading="eager"
+          />
+
+          <span className="flex flex-col leading-none">
+            <span className="text-lg font-semibold tracking-[0.22em] text-primary">AEC</span>
+            <span className="mt-1 text-[11px] font-semibold tracking-[0.18em] uppercase text-muted-foreground">
+              Agile Engineering Consultants
+            </span>
           </span>
         </a>
 
