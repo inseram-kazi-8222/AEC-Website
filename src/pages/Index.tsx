@@ -1,3 +1,4 @@
+import logoFull from "@/assets/aec-logo-full.png";
 import { AecHeader } from "@/components/aec/AecHeader";
 import { FadeIn } from "@/components/aec/FadeIn";
 import { Section } from "@/components/aec/Section";
@@ -148,7 +149,15 @@ const Index = () => {
                 <h2 id="contact-title" className="text-balance text-2xl font-semibold tracking-[0.12em] uppercase">
                   THANK YOU
                 </h2>
-                <div className="mt-8 rounded-lg border border-border bg-card p-8">
+
+                <img
+                  src={logoFull}
+                  alt="Agile Engineering Consultants (AEC) logo"
+                  className="mx-auto mt-7 h-10 w-auto object-contain"
+                  loading="lazy"
+                />
+
+                <div className="mt-6 rounded-lg border border-border bg-card p-8">
                   <div className="text-xs font-semibold tracking-[0.18em] uppercase text-primary">
                     AGILE ENGINEERING CONSULTANTS (AEC)
                   </div>
