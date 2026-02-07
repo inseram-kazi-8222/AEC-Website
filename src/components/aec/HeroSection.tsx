@@ -1,5 +1,6 @@
 import * as React from "react";
 import heroImage from "@/assets/aec-hero.jpg";
+import logoFull from "@/assets/aec-logo-full.png";
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 
 import { FadeIn } from "@/components/aec/FadeIn";
@@ -10,6 +11,7 @@ function scrollToId(id: string) {
   if (!el) return;
   el.scrollIntoView({ behavior: "smooth", block: "start" });
 }
+
 
 export function HeroSection() {
   return (
@@ -102,7 +104,13 @@ export function HeroSection() {
                     </div>
 
                     <div className="bg-secondary p-7">
-                      <div className="text-xs font-semibold tracking-[0.22em] uppercase text-muted-foreground">
+                      <img
+                        src={logoFull}
+                        alt="Agile Engineering Consultants (AEC) logo"
+                        className="h-10 w-auto object-contain"
+                        loading="lazy"
+                      />
+                      <div className="mt-5 text-xs font-semibold tracking-[0.22em] uppercase text-muted-foreground">
                         Contact Information
                       </div>
                       <div className="mt-5 space-y-4 text-sm text-foreground/80">
