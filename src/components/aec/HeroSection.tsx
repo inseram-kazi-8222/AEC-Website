@@ -16,7 +16,7 @@ function scrollToId(id: string) {
 
 export function HeroSection() {
   return (
-    <section id="hero" className="scroll-mt-28" aria-labelledby="hero-title">
+    <section id="hero" className="scroll-mt-28 dark" aria-labelledby="hero-title">
       <div className="relative border-b border-border">
         {/* Subtle industry background (blueprint grid + faint image) */}
         <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -30,10 +30,10 @@ export function HeroSection() {
           <img
             src={heroImage}
             alt=""
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.08]"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.22]"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-background/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/25 via-background/60 to-background" />
         </div>
 
         <div className="relative">
@@ -82,7 +82,7 @@ export function HeroSection() {
                       View Our Projects <ArrowRight className="h-4 w-4" />
                     </Button>
                     <Button
-                      variant="outline"
+                      variant="cta"
                       onClick={() => scrollToId("contact")}
                       aria-label="Contact us"
                     >
