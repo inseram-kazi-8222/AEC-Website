@@ -45,8 +45,8 @@ export function AecHeader({ primaryLinks, moreLinks = [] }: AecHeaderProps) {
   const linkBase =
     "relative px-1 py-2 text-xs font-semibold tracking-[0.18em] uppercase transition-colors text-brand-navy-foreground/85 hover:text-brand-navy-foreground";
   const underline =
-    "after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-brand-lime after:transition-transform after:duration-300 hover:after:scale-x-100";
-  const active = "text-brand-lime after:scale-x-100";
+    "after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-brand-electric after:transition-transform after:duration-300 hover:after:scale-x-100";
+  const active = "text-brand-electric after:scale-x-100";
 
   return (
     <header

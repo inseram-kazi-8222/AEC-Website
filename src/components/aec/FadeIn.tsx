@@ -19,8 +19,8 @@ export function FadeIn({ as = "div", className, children, once = true }: FadeInP
     <Comp
       ref={ref}
       className={cn(
-        "transition-opacity duration-700 motion-reduce:transition-none",
-        inView ? "opacity-100" : "opacity-0",
+        "transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none motion-reduce:transform-none",
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
         className,
       )}
     >
