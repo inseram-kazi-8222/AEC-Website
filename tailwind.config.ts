@@ -51,6 +51,8 @@ export default {
           navy: "hsl(var(--brand-navy))",
           "navy-foreground": "hsl(var(--brand-navy-foreground))",
           lime: "hsl(var(--brand-lime))",
+          electric: "hsl(var(--brand-electric))",
+          "electric-foreground": "hsl(var(--brand-electric-foreground))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

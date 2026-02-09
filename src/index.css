@@ -25,10 +25,9 @@ All colors MUST be HSL.
     --brand-navy-foreground: 0 0% 100%;
     --brand-lime: 92 100% 51%; /* ~ #76ff03 */
 
-    /* Primary keeps brand navy to align buttons/accents */
-    --primary: var(--brand-navy);
-    --primary-foreground: var(--brand-navy-foreground);
-    --primary-2: 231 64% 38%;
+    /* Electric Blue accent (navigation/links highlight) */
+    --brand-electric: 214 100% 58%; /* ~ #2979ff */
+    --brand-electric-foreground: 0 0% 100%;
 
     /* Section surfaces */
     --secondary: 0 0% 96%; /* ~ #f5f5f5 */
@@ -139,6 +138,39 @@ All colors MUST be HSL.
       linear-gradient(to bottom, hsl(var(--primary) / 0.05) 1px, transparent 1px);
     background-size: 56px 56px;
     background-position: top left;
+  }
+}
+
+@layer utilities {
+  @keyframes aec-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes aec-hero-pan {
+    0% {
+      transform: scale(1.05) translate3d(0, 0, 0);
+    }
+    50% {
+      transform: scale(1.12) translate3d(-1.5%, -1%, 0);
+    }
+    100% {
+      transform: scale(1.05) translate3d(0, 0, 0);
+    }
+  }
+
+  .aec-float {
+    animation: aec-float 9s ease-in-out infinite;
+  }
+
+  .aec-hero-pan {
+    animation: aec-hero-pan 18s ease-in-out infinite;
+    will-change: transform;
   }
 }
 
