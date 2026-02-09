@@ -1,5 +1,6 @@
 import * as React from "react";
 import heroImage from "@/assets/aec-hero.jpg";
+import heroSideCard from "@/assets/hero-side-card.jpg";
 import logoFull from "@/assets/aec-logo-full.png";
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 
@@ -95,8 +96,8 @@ export function HeroSection() {
                   <div className="overflow-hidden rounded-lg border border-border bg-card">
                     <div className="relative aspect-[4/3]">
                       <img
-                        src={heroImage}
-                        alt="Professional engineering and construction imagery"
+                        src={heroSideCard}
+                        alt="Agile Engineering Consultants office and team"
                         className="absolute inset-0 h-full w-full object-cover"
                         loading="lazy"
                       />
