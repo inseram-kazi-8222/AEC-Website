@@ -10,36 +10,42 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Executive dark base (default) */
-    --background: 218 35% 10%;
-    --foreground: 210 40% 98%;
+    /* Light corporate base (default) */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
 
-    --card: 218 32% 14%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 218 32% 14%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
-    /* Logo-blue inspired primary with a brighter stop for gradients */
-    --primary: 216 86% 56%;
-    --primary-foreground: 218 35% 10%;
-    --primary-2: 206 95% 62%;
+    /* Brand colors (requested) */
+    --brand-navy: 231 64% 30%; /* ~ #1a237e */
+    --brand-navy-foreground: 0 0% 100%;
+    --brand-lime: 92 100% 51%; /* ~ #76ff03 */
 
-    --secondary: 218 26% 18%;
-    --secondary-foreground: 210 40% 98%;
+    /* Primary keeps brand navy to align buttons/accents */
+    --primary: var(--brand-navy);
+    --primary-foreground: var(--brand-navy-foreground);
+    --primary-2: 231 64% 38%;
 
-    --muted: 218 24% 16%;
-    --muted-foreground: 215 18% 72%;
+    /* Section surfaces */
+    --secondary: 0 0% 96%; /* ~ #f5f5f5 */
+    --secondary-foreground: 222 47% 11%;
 
-    --accent: 218 26% 20%;
-    --accent-foreground: 210 40% 98%;
+    --muted: 0 0% 96%; /* ~ #f5f5f5 */
+    --muted-foreground: 223 15% 35%;
+
+    --accent: 231 64% 94%;
+    --accent-foreground: 222 47% 11%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 218 20% 22%;
-    --input: 218 20% 22%;
-    --ring: 216 86% 56%;
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: var(--brand-navy);
 
     --radius: 0.75rem;
 
@@ -50,20 +56,20 @@ All colors MUST be HSL.
 
     /* Effects */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-2)));
-    --shadow-elevated: 0 18px 45px -20px hsl(var(--primary) / 0.45);
+    --shadow-elevated: 0 18px 45px -20px hsl(var(--primary) / 0.28);
 
-    /* Sidebar tokens (unused in AEC pages but keep consistent) */
-    --sidebar-background: 218 35% 10%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 216 86% 56%;
-    --sidebar-primary-foreground: 218 35% 10%;
-    --sidebar-accent: 218 26% 18%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 218 20% 22%;
-    --sidebar-ring: 216 86% 56%;
+    /* Sidebar tokens */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: var(--brand-navy);
+    --sidebar-primary-foreground: var(--brand-navy-foreground);
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 220 13% 88%;
+    --sidebar-ring: var(--brand-navy);
   }
 
-  /* Optional light mode (if you ever add a toggle) */
+  /* Optional dark mode (used for Hero banner) */
   .dark {
     --background: 218 35% 10%;
     --foreground: 210 40% 98%;
@@ -76,6 +82,7 @@ All colors MUST be HSL.
 
     --primary: 216 86% 56%;
     --primary-foreground: 218 35% 10%;
+    --primary-2: 206 95% 62%;
 
     --secondary: 218 26% 18%;
     --secondary-foreground: 210 40% 98%;

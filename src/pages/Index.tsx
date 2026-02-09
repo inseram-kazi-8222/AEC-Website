@@ -54,7 +54,7 @@ const Index = () => {
 
         {/* 3) ABOUT US */}
         <FadeIn>
-          <Section id="about" title="ABOUT US" tone="muted">
+          <Section id="about" title="ABOUT US">
             <div className="space-y-8">
               <div className="space-y-5 text-base leading-relaxed text-foreground/80">
                 <p>
@@ -114,7 +114,7 @@ const Index = () => {
 
         {/* 6) SERVICES */}
         <FadeIn>
-          <Section id="services" title="OUR SERVICES">
+          <Section id="services" title="OUR SERVICES" tone="muted">
             <ServicesGrid />
           </Section>
         </FadeIn>
@@ -166,7 +166,11 @@ const Index = () => {
         </FadeIn>
 
         {/* 11) FOOTER / CONTACT */}
-        <section id="contact" className="scroll-mt-28 border-t border-border bg-background" aria-labelledby="contact-title">
+        <section
+          id="contact"
+          className="scroll-mt-28 border-t border-border bg-brand-navy text-brand-navy-foreground"
+          aria-labelledby="contact-title"
+        >
           <div className="container py-14 sm:py-16">
             <FadeIn>
               <div className="mx-auto max-w-3xl text-center">

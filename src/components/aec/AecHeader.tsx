@@ -43,15 +43,15 @@ export function AecHeader({ primaryLinks, moreLinks = [] }: AecHeaderProps) {
   }, []);
 
   const linkBase =
-    "relative px-1 py-2 text-xs font-semibold tracking-[0.18em] uppercase transition-colors text-muted-foreground hover:text-foreground";
+    "relative px-1 py-2 text-xs font-semibold tracking-[0.18em] uppercase transition-colors text-brand-navy-foreground/85 hover:text-brand-navy-foreground";
   const underline =
-    "after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:scale-x-100";
-  const active = "text-primary after:scale-x-100";
+    "after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-brand-lime after:transition-transform after:duration-300 hover:after:scale-x-100";
+  const active = "text-brand-lime after:scale-x-100";
 
   return (
     <header
       className={cn(
-        "aec-header sticky top-0 z-50 w-full border-b border-border bg-background/95 supports-[backdrop-filter]:bg-background/85 backdrop-blur transition-all",
+        "aec-header sticky top-0 z-50 w-full border-b border-border bg-brand-navy supports-[backdrop-filter]:bg-brand-navy/95 backdrop-blur transition-all",
         scrolled ? "shadow-sm" : "shadow-none",
       )}
     >
@@ -79,8 +79,8 @@ export function AecHeader({ primaryLinks, moreLinks = [] }: AecHeaderProps) {
           />
 
           <span className="flex flex-col leading-none">
-            <span className="text-lg font-semibold tracking-[0.22em] text-primary">AEC</span>
-            <span className="mt-1 text-[11px] font-semibold tracking-[0.18em] uppercase text-muted-foreground">
+            <span className="text-lg font-semibold tracking-[0.22em] text-brand-navy-foreground">AEC</span>
+            <span className="mt-1 text-[11px] font-semibold tracking-[0.18em] uppercase text-brand-navy-foreground/75">
               Agile Engineering Consultants
             </span>
           </span>
@@ -89,7 +89,12 @@ export function AecHeader({ primaryLinks, moreLinks = [] }: AecHeaderProps) {
         {isMobile ? (
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" aria-label="Open navigation menu">
+              <Button
+                variant="outline"
+                size="icon"
+                className="border-brand-navy-foreground/30 bg-transparent text-brand-navy-foreground hover:bg-brand-navy-foreground/10"
+                aria-label="Open navigation menu"
+              >
                 <Menu />
               </Button>
             </SheetTrigger>
