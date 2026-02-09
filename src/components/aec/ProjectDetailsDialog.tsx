@@ -21,8 +21,8 @@ export function ProjectDetailsDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl p-0 overflow-hidden">
-        <div className="grid gap-0 md:grid-cols-2">
+      <DialogContent className="w-[95vw] max-w-5xl max-h-[85vh] p-0 overflow-hidden">
+        <div className="grid gap-0 md:grid-cols-[1.2fr_1fr]">
           <div className="bg-muted/30">
             {project.imageSrc ? (
               <AspectRatio ratio={16 / 10}>
