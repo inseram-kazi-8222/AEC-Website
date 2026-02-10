@@ -13,16 +13,6 @@ const categories: ProjectCategory[] = [
     title: "Industrial Works",
     projects: [
       {
-        title: "B+G+P+14 Floor Residential apartments",
-        location: "Jabal Ali First, Dubai, UAE",
-        stage: "Ongoing",
-      },
-      {
-        title: "B+G+1 Floor Residential Villa",
-        location: "Dubai Hills, Dubai, UAE",
-        stage: "Ongoing",
-      },
-      {
         title: "G+1 Office & Warehouse (Interocean Ship Engineering services FZCO)",
         location: "Dubai Maritime city FZE, Dubai, UAE",
         stage: "Ongoing",
@@ -30,12 +20,12 @@ const categories: ProjectCategory[] = [
       {
         title: "G+1 Office & Warehouse (Arcship Marine FZCO)",
         location: "Dubai Maritime city FZE, Dubai, UAE",
-        stage: "Under Design",
+        stage: "Ongoing",
       },
       {
         title: "Warehouse Design Development (Nash Engineering)",
         location: "Jebal Ali, Dubai, UAE",
-        stage: "Under Design",
+        stage: "Ongoing",
       },
     ],
   },
@@ -72,6 +62,16 @@ const categories: ProjectCategory[] = [
   {
     title: "Residential Works",
     projects: [
+      {
+        title: "B+G+P+14 Floor Residential apartments",
+        location: "Jabal Ali First, Dubai, UAE",
+        stage: "Ongoing",
+      },
+      {
+        title: "B+G+1 Floor Residential Villa",
+        location: "Dubai Hills, Dubai, UAE",
+        stage: "Ongoing",
+      },
       {
         title: "G+1 Villa",
         location: "Nad Al Shiba, Dubai, UAE",
@@ -117,6 +117,16 @@ const categories: ProjectCategory[] = [
         location: "Dubai South, UAE",
         stage: "Under Design Development",
       },
+      {
+        title: "G+5 Labour Accommodation",
+        location: "AL WARSAN 2, Dubai, UAE",
+        stage: "Ongoing",
+      },
+      {
+        title: "G+1+RF Residential Villa",
+        location: "DAMAC HILLS 2 DUBAI RESIDENTIAL",
+        stage: "Ongoing",
+      }
     ],
   },
   {
@@ -126,6 +136,11 @@ const categories: ProjectCategory[] = [
         title: "Front Elevation Development",
         location: "Al Manara, Dubai, UAE",
         stage: "Completed",
+      },
+      {
+        title: "2B+G+2M+RF SOMEONE STAGE OFFICE BUILDING",
+        location: "AL QUOZ DUBAI COMMERCIAL, UAE",
+        stage: "Ongoing",
       },
       {
         title: "Art Gallery",
