@@ -139,7 +139,7 @@ const categories: ProjectCategory[] = [
       },
       {
         title: "2B+G+2M+RF SOMEONE STAGE OFFICE BUILDING",
-        location: "AL QUOZ DUBAI COMMERCIAL, UAE",
+        location: "AL QUOZ DUBAI COMMERCIAL,",
         stage: "Ongoing",
       },
       {

@@ -43,11 +43,13 @@ const Index = () => {
                 solution in architectural, structural and MEP engineering as per the client’s requirement to provide the
                 highest value.
               </p>
-              <p className="border-l-2 border-primary/40 pl-5 text-sm leading-relaxed text-foreground/70">
-                AEC comprises exceptionally skilled and experienced staff with expertise in engineering design and project
-                management. Our team follows a design orientated methodology backed by stringent project management to ensure
-                we deliver the projects on time and as per client’s expectations.
-              </p>
+              <div className="rounded-lg border border-white/20 bg-white/10 backdrop-blur-md p-5">
+                <p className="border-l-2 border-primary/40 pl-5 text-sm leading-relaxed text-foreground/70">
+                  AEC comprises exceptionally skilled and experienced staff with expertise in engineering design and project
+                  management. Our team follows a design orientated methodology backed by stringent project management to ensure
+                  we deliver the projects on time and as per client's expectations.
+                </p>
+              </div>
             </div>
           </Section>
         </FadeIn>
