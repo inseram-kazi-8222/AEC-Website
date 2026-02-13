@@ -29,7 +29,7 @@ export function Section({ id, title, subtitle, tone = "plain", children }: Secti
             <div className="md:pt-1">
               <h2
                 id={`${id}-title`}
-                className="text-xs font-semibold tracking-[0.22em] text-foreground/80 uppercase"
+                className="inline-block rounded-full bg-primary/10 px-4 py-2 text-xs font-semibold tracking-[0.22em] text-primary uppercase border border-primary/20"
               >
                 {title}
               </h2>

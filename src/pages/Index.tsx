@@ -173,36 +173,87 @@ const Index = () => {
           className="scroll-mt-28 border-t border-border bg-brand-navy text-brand-navy-foreground"
           aria-labelledby="contact-title"
         >
-          <div className="container py-14 sm:py-16">
-            <FadeIn>
-              <div className="mx-auto max-w-3xl text-center">
-                <h2 id="contact-title" className="text-balance text-2xl font-semibold tracking-[0.12em] uppercase">
-                  THANK YOU
-                </h2>
-
+          <div className="container py-16 sm:py-24">
+            <div className="grid gap-12 md:grid-cols-4 lg:gap-16">
+              {/* Left: Logo & Description */}
+              <div className="md:col-span-1">
                 <img
                   src={logoFull}
                   alt="Agile Engineering Consultants (AEC) logo"
-                  className="mx-auto mt-7 h-10 w-auto object-contain"
+                  className="h-27 w-auto object-contain brightness-0 invert"
                   loading="lazy"
                 />
+                <p className="mt-6 text-sm leading-relaxed text-brand-navy-foreground/80">
+                  AEC is a leading engineering consultancy providing comprehensive solutions in architectural, structural and MEP engineering.
+                </p>
+              </div>
 
-                <div className="mt-6 rounded-lg border border-border bg-card p-8">
-                  <div className="text-xs font-semibold tracking-[0.18em] uppercase text-primary">
-                    AGILE ENGINEERING CONSULTANTS (AEC)
+              {/* Quick Links */}
+              <div>
+                <h3 className="text-sm font-semibold tracking-[0.1em] uppercase text-white">Quick Links</h3>
+                <div className="mt-6 space-y-3">
+                  <a href="#introduction" className="block text-sm text-brand-navy-foreground/80 transition-colors hover:text-primary">
+                    About
+                  </a>
+                  <a href="#services" className="block text-sm text-brand-navy-foreground/80 transition-colors hover:text-primary">
+                    Services
+                  </a>
+                  <a href="#projects" className="block text-sm text-brand-navy-foreground/80 transition-colors hover:text-primary">
+                    Projects
+                  </a>
+                  <a href="#org-chart" className="block text-sm text-brand-navy-foreground/80 transition-colors hover:text-primary">
+                    Organization
+                  </a>
+                </div>
+              </div>
+
+              {/* Services */}
+              <div>
+                <h3 className="text-sm font-semibold tracking-[0.1em] uppercase text-white">Our Services</h3>
+                <div className="mt-6 space-y-3">
+                  <div className="text-sm text-brand-navy-foreground/80">Architectural Design</div>
+                  <div className="text-sm text-brand-navy-foreground/80">Structural Works</div>
+                  <div className="text-sm text-brand-navy-foreground/80">MEP Engineering</div>
+                  <div className="text-sm text-brand-navy-foreground/80">Project Management</div>
+                </div>
+              </div>
+
+              {/* Contact */}
+              <div>
+                <h3 className="text-sm font-semibold tracking-[0.1em] uppercase text-white">Contact Us</h3>
+                <div className="mt-6 space-y-4">
+                  <div className="flex gap-3">
+                    <span className="text-primary">📍</span>
+                    <p className="text-sm text-brand-navy-foreground/80">P.O. Box 89804, Dubai, United Arab Emirates</p>
                   </div>
-                  <div className="mt-4 space-y-2 text-sm">
-                    <div>Tel: +971-4-33 999 25</div>
-                    <div>
-                      <a className="text-primary underline underline-offset-4" href="mailto:info@agileeng.net">
-                        info@agileeng.net
-                      </a>
-                    </div>
-                    <div>P.O. Box 89804, Dubai, United Arab Emirates</div>
+                  <div className="flex gap-3">
+                    <span className="text-primary">📞</span>
+                    <a href="tel:+97143399925" className="text-sm text-brand-navy-foreground/80 transition-colors hover:text-primary">
+                      +971-4-33 999 25
+                    </a>
+                  </div>
+                  <div className="flex gap-3">
+                    <span className="text-primary">✉️</span>
+                    <a href="mailto:info@agileeng.net" className="text-sm text-brand-navy-foreground/80 transition-colors hover:text-primary">
+                      info@agileeng.net
+                    </a>
                   </div>
                 </div>
               </div>
-            </FadeIn>
+            </div>
+
+            {/* Divider */}
+            <div className="my-12 h-px bg-brand-navy-foreground/10" />
+
+            {/* Bottom */}
+            <div className="text-center">
+              <p className="text-sm text-brand-navy-foreground/60">
+                © 2026 Agile Engineering Consultants. All rights reserved.
+              </p>
+              <p className="mt-2 text-xs text-brand-navy-foreground/50">
+                Designed with ❤️ for engineering excellence
+              </p>
+            </div>
           </div>
         </section>
       </main>
