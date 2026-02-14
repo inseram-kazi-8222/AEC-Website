@@ -33,7 +33,7 @@ export function HeroSection() {
             className="absolute inset-0 h-full w-full object-cover opacity-[0.22] motion-safe:animate-[aec-hero-pan_18s_ease-in-out_infinite] motion-reduce:animate-none"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/25 via-background/60 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/25 via-background/60 to-background/95" />
         </div>
 
         <div className="relative">
