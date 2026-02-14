@@ -198,6 +198,7 @@ function ProjectItem({
 export function ProjectsList() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState<ProjectDetails | null>(null);
+  const [activeCategory, setActiveCategory] = React.useState(categories[0]?.title ?? "");
 
   const openProject = React.useCallback((p: { title: string; location: string; stage: string }) => {
     setSelected({
@@ -209,16 +210,43 @@ export function ProjectsList() {
     setOpen(true);
   }, []);
 
+  const currentCategory = categories.find((cat) => cat.title === activeCategory) ?? categories[0];
+
   return (
     <>
-      <div className="space-y-10">
-        {categories.map((cat) => (
-          <section key={cat.title} aria-label={cat.title}>
-            <h3 className="text-sm font-semibold tracking-[0.14em] uppercase text-primary">{cat.title}</h3>
+      <div className="space-y-8">
+        <div className="rounded-2xl border border-border bg-card/90 p-6 shadow-sm">
+          <div className="flex flex-wrap gap-4">
+          {categories.map((cat) => {
+            const isActive = cat.title === activeCategory;
+            return (
+              <button
+                key={cat.title}
+                type="button"
+                onClick={() => setActiveCategory(cat.title)}
+                className={
+                  "rounded-xl border px-6 py-3 text-xs font-semibold tracking-[0.18em] uppercase transition-colors" +
+                  (isActive
+                    ? " border-primary/70 bg-primary/10 text-primary"
+                    : " border-foreground/20 text-foreground/70 hover:border-primary/50 hover:text-primary")
+                }
+              >
+                {cat.title}
+              </button>
+            );
+          })}
+          </div>
+        </div>
+
+        {currentCategory ? (
+          <section key={currentCategory.title} aria-label={currentCategory.title}>
+            <h3 className="text-sm font-semibold tracking-[0.14em] uppercase text-primary">
+              {currentCategory.title}
+            </h3>
             <div className="mt-4 grid gap-4 md:grid-cols-2">
-              {cat.projects.map((p) => (
+              {currentCategory.projects.map((p) => (
                 <ProjectItem
-                  key={`${cat.title}-${p.title}`}
+                  key={`${currentCategory.title}-${p.title}`}
                   title={p.title}
                   location={p.location}
                   stage={p.stage}
@@ -227,7 +255,7 @@ export function ProjectsList() {
               ))}
             </div>
           </section>
-        ))}
+        ) : null}
       </div>
 
       <ProjectDetailsDialog

@@ -66,10 +66,10 @@ export function OrganizationChart() {
                         <List
                           items={[
                             "Architectural / Interior Design / 3D CAD / Studio Design",
+                            "Structural Engineer",
                             "Architectural Draftsman",
                             "MEP Engineers",
                             "MEP Draftsman",
-                            "Structural Engineer",
                             "Structural Draftsman",
                             "QS / Contract Engineer",
                           ]}
@@ -116,10 +116,10 @@ export function OrganizationChart() {
                 <List
                   items={[
                     "Architectural / Interior Design / 3D CAD / Studio Design",
+                    "Structural Engineer",
                     "Architectural Draftsman",
                     "MEP Engineers",
                     "MEP Draftsman",
-                    "Structural Engineer",
                     "Structural Draftsman",
                     "QS / Contract Engineer",
                   ]}
