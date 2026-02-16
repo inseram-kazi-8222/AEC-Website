@@ -73,12 +73,17 @@ const categories: ProjectCategory[] = [
         stage: "Ongoing",
       },
       {
-        title: "G+1 Villa",
+        title: "G+1 Villa (Nad Al Shiba)",
         location: "Nad Al Shiba, Dubai, UAE",
         stage: "Ongoing",
       },
       {
-        title: "G+1 Villa",
+        title: "G+1 Villa (Sharjah)",
+        location: "Sharjah, Dubai, UAE",
+        stage: "Ongoing",
+      },
+      {
+        title: "G+1 Villa (Dubai South)",
         location: "Dubai South, UAE",
         stage: "Design Approved",
       },
@@ -88,7 +93,7 @@ const categories: ProjectCategory[] = [
         stage: "Under Design Development",
       },
       {
-        title: "G+1 Villa",
+        title: "G+1 Villa (Al Qusais)",
         location: "Al Qusais, Dubai, UAE",
         stage: "Under Construction",
       },
@@ -98,7 +103,7 @@ const categories: ProjectCategory[] = [
         stage: "Ongoing",
       },
       {
-        title: "G+1 Villa",
+        title: "G+1 Villa (Al Mamzar)",
         location: "Al Mamzar, Dubai, UAE",
         stage: "Ongoing",
       },
@@ -217,24 +222,24 @@ export function ProjectsList() {
       <div className="space-y-8">
         <div className="rounded-2xl border border-border bg-card/90 p-6 shadow-sm">
           <div className="flex flex-wrap gap-4">
-          {categories.map((cat) => {
-            const isActive = cat.title === activeCategory;
-            return (
-              <button
-                key={cat.title}
-                type="button"
-                onClick={() => setActiveCategory(cat.title)}
-                className={
-                  "rounded-xl border px-6 py-3 text-xs font-semibold tracking-[0.18em] uppercase transition-colors" +
-                  (isActive
-                    ? " border-primary/70 bg-primary/10 text-primary"
-                    : " border-foreground/20 text-foreground/70 hover:border-primary/50 hover:text-primary")
-                }
-              >
-                {cat.title}
-              </button>
-            );
-          })}
+            {categories.map((cat) => {
+              const isActive = cat.title === activeCategory;
+              return (
+                <button
+                  key={cat.title}
+                  type="button"
+                  onClick={() => setActiveCategory(cat.title)}
+                  className={
+                    "rounded-xl border px-6 py-3 text-xs font-semibold tracking-[0.18em] uppercase transition-colors" +
+                    (isActive
+                      ? " border-primary/70 bg-primary/10 text-primary"
+                      : " border-foreground/20 text-foreground/70 hover:border-primary/50 hover:text-primary")
+                  }
+                >
+                  {cat.title}
+                </button>
+              );
+            })}
           </div>
         </div>
 
