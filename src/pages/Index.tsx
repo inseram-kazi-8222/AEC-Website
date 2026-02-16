@@ -37,14 +37,14 @@ const Index = () => {
         {/* 2) INTRODUCTION */}
         <FadeIn>
           <Section id="introduction" title="INTRODUCTION">
-            <div className="space-y-6 text-base leading-relaxed text-foreground/80">
+            <div className="space-y-6 text-lg leading-relaxed text-foreground/80 text-justify">
               <p>
                 AEC is an Engineering Consultancy, established and operating in United Arab Emirates (UAE). We provide complete
                 solution in architectural, structural and MEP engineering as per the client’s requirement to provide the
                 highest value.
               </p>
               <div className="rounded-lg border border-white/20 bg-white/10 backdrop-blur-md p-5">
-                <p className="border-l-2 border-primary/40 pl-5 text-sm leading-relaxed text-foreground/70">
+                <p className="border-l-2 border-primary/40 pl-5 text-base leading-relaxed text-foreground/70 text-justify">
                   AEC comprises exceptionally skilled and experienced staff with expertise in engineering design and project
                   management. Our team follows a design orientated methodology backed by stringent project management to ensure
                   we deliver the projects on time and as per client's expectations.
@@ -58,14 +58,14 @@ const Index = () => {
         <FadeIn>
           <Section id="about" title="ABOUT US">
             <div className="space-y-8">
-              <div className="space-y-5 text-base leading-relaxed text-foreground/80">
+              <div className="space-y-5 text-lg leading-relaxed text-foreground/80 text-justify">
                 <p>
                   AEC has been established by a group of competent professionals involved in the industry for the past 20
                   years, having vast experience in Building Design, Industrial Design & Construction and Project Management.
                 </p>
 
                 <div className="rounded-lg border border-border bg-card/80 p-5">
-                  <p className="text-base font-medium leading-relaxed text-primary">
+                  <p className="text-lg font-medium leading-relaxed text-primary text-center">
                     Customer focus and professionalism is at the heart of our business.
                   </p>
                 </div>
@@ -121,7 +121,7 @@ const Index = () => {
         {/* 4) OUR VISION */}
         <FadeIn>
           <Section id="vision" title="OUR VISION">
-            <ul className="max-w-4xl list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted-foreground">
+            <ul className="max-w-4xl list-disc space-y-2 pl-5 text-lg leading-relaxed text-muted-foreground text-justify">
               <li>
                 To be known as a leading, innovative organization, at the forefront of Architecture, Structural, MEP
                 Engineering Services, Project and Contract Management.
@@ -155,7 +155,7 @@ const Index = () => {
         {/* 8) OUR TEAM */}
         <FadeIn>
           <Section id="team" title="OUR TEAM">
-            <div className="max-w-4xl space-y-4 text-sm leading-relaxed text-muted-foreground">
+            <div className="max-w-4xl space-y-4 text-lg leading-relaxed text-muted-foreground text-justify">
               <p>
                 AEC team is based in Dubai, comprising of highly experienced and qualified professionals, well-equipped to
                 handle and deliver projects as per client needs.
@@ -172,12 +172,17 @@ const Index = () => {
         <FadeIn>
           <Section id="office" title="OFFICE ADDRESS" tone="muted">
             <div className="mx-auto max-w-xl text-center">
-              <div className="rounded-lg border border-border bg-card p-8">
-                <div className="space-y-1 text-sm">
-                  <div>City Business Bay Center</div>
-                  <div>Office Number 316</div>
-                  <div>Near Abu Hail Metro Station</div>
-                  <div>P.O. Box 89804, Dubai, UAE</div>
+              <div className="group relative isolate">
+                {/* Individual soft glow behind */}
+                <div className="absolute -inset-2 -z-10 rounded-3xl bg-brand-lime/20 opacity-70 blur-2xl transition-all duration-500 group-hover:bg-brand-lime/30 group-hover:opacity-100" />
+
+                <div className="break-inside-avoid overflow-hidden rounded-2xl border border-white/10 bg-brand-navy/80 p-10 shadow-xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-brand-navy/90 hover:shadow-2xl">
+                  <div className="space-y-3 text-lg font-medium leading-relaxed text-white">
+                    <div>City Business Bay Center</div>
+                    <div>Office Number 316</div>
+                    <div>Near Abu Hail Metro Station</div>
+                    <div>P.O. Box 89804, Dubai, UAE</div>
+                  </div>
                 </div>
               </div>
             </div>
