@@ -19,21 +19,24 @@ export function HeroSection() {
     <section id="hero" className="scroll-mt-28 dark" aria-labelledby="hero-title">
       <div className="relative border-b border-border">
         {/* Subtle industry background (blueprint grid + faint image) */}
-        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-          <div
-            className={
-              "absolute inset-0 opacity-60 " +
-              "[background-image:linear-gradient(to_right,hsl(var(--border)/0.45)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.45)_1px,transparent_1px)] " +
-              "[background-size:56px_56px]"
-            }
-          />
+        {/* Animated abstract background */}
+        <div className="absolute inset-0 overflow-hidden bg-gradient-to-br from-brand-navy/95 via-brand-navy/90 to-black/95">
+          {/* Subtle animated particles/shapes */}
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute -top-[10%] -left-[10%] h-[50vh] w-[50vh] rounded-full bg-brand-electric blur-[120px] animate-pulse" />
+            <div className="absolute top-[40%] -right-[10%] h-[60vh] w-[60vh] rounded-full bg-brand-lime blur-[150px] animate-pulse delay-1000" />
+            <div className="absolute -bottom-[20%] left-[20%] h-[40vh] w-[40vh] rounded-full bg-brand-orange blur-[100px] animate-pulse delay-700" />
+          </div>
+
+          {/* Engineering grid overlay */}
+          <div className="absolute inset-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
+
           <img
             src={heroImage}
             alt=""
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.22] motion-safe:animate-[aec-hero-pan_18s_ease-in-out_infinite] motion-reduce:animate-none"
-            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover opacity-20 mix-blend-overlay motion-safe:animate-[aec-hero-pan_25s_ease-in-out_infinite]"
+            loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/25 via-background/60 to-background/95" />
         </div>
 
         <div className="relative">

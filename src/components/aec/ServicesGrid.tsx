@@ -58,23 +58,28 @@ export function ServicesGrid() {
       {services.map((s) => (
         <Card
           key={s.title}
-          className="group overflow-hidden shadow-none transition-[transform,box-shadow,border-color] motion-safe:hover:-translate-y-0.5 motion-safe:hover:shadow-md hover:border-primary/30"
+          className="group overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-3 hover:shadow-xl hover:border-brand-electric/30"
         >
           <div className="relative aspect-[4/3] overflow-hidden border-b border-border bg-muted">
             <img
               src={s.image}
               alt={s.alt}
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.05]"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               loading="lazy"
             />
             <div
-              className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent"
+              className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-40"
               aria-hidden="true"
             />
+            {/* Overlay icon or indicator on hover could go here, but keeping it clean for corporate look */}
           </div>
 
-          <CardContent className="p-6">
-            <div className="text-sm font-semibold tracking-[0.06em] uppercase">{s.title}</div>
+          <CardContent className="p-6 relative">
+            {/* Subtle animated underline */}
+            <div className="text-sm font-semibold tracking-[0.06em] uppercase transition-colors group-hover:text-brand-electric">
+              {s.title}
+            </div>
+            <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-brand-electric transition-all duration-300 group-hover:w-full" />
           </CardContent>
         </Card>
       ))}

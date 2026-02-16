@@ -24,6 +24,7 @@ All colors MUST be HSL.
     --brand-navy: 231 64% 30%; /* ~ #1a237e */
     --brand-navy-foreground: 0 0% 100%;
     --brand-lime: 92 100% 51%; /* ~ #76ff03 */
+    --brand-orange: 25 95% 53%; /* ~ #ff6d00 - Subtle orange accent */
 
     /* Electric Blue accent (navigation/links highlight) */
     --brand-electric: 214 100% 58%; /* ~ #2979ff */

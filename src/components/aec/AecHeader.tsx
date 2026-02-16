@@ -42,22 +42,27 @@ export function AecHeader({ primaryLinks, moreLinks = [] }: AecHeaderProps) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const linkBase =
-    "relative px-1 py-2 text-xs font-semibold tracking-[0.18em] uppercase transition-colors text-brand-navy/80 hover:text-brand-navy";
+  const linkBase = scrolled
+    ? "relative px-1 py-2 text-xs font-semibold tracking-[0.18em] uppercase transition-colors text-brand-navy/80 hover:text-brand-navy"
+    : "relative px-1 py-2 text-xs font-semibold tracking-[0.18em] uppercase transition-colors text-white/90 hover:text-white";
+
+  const active = scrolled ? "text-brand-electric after:scale-x-100" : "text-brand-orange after:scale-x-100";
+
   const underline =
     "after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-brand-electric after:transition-transform after:duration-300 hover:after:scale-x-100";
-  const active = "text-brand-electric after:scale-x-100";
 
   return (
     <header
       className={cn(
-        "aec-header sticky top-0 z-50 w-full border-b border-border bg-background supports-[backdrop-filter]:bg-background/95 backdrop-blur transition-all",
-        scrolled ? "shadow-sm" : "shadow-none",
+        "aec-header fixed top-0 z-50 w-full border-b transition-all duration-300",
+        scrolled
+          ? "border-border bg-background/95 backdrop-blur shadow-md"
+          : "border-transparent bg-transparent shadow-none"
       )}
     >
       <div
-        className={cn("container flex items-center justify-between", scrolled ? "h-16" : "h-20")}
-        style={{ transition: "height 200ms ease" }}
+        className={cn("container flex items-center justify-between", scrolled ? "h-16" : "h-24")}
+        style={{ transition: "height 300ms ease" }}
       >
         <a
           href="#hero"
@@ -72,18 +77,18 @@ export function AecHeader({ primaryLinks, moreLinks = [] }: AecHeaderProps) {
             src={logoMark}
             alt="AEC logo mark"
             className={cn(
-              "h-10 w-10 shrink-0 object-contain transition-[width,height] duration-200",
-              scrolled ? "h-9 w-9" : "h-10 w-10",
+              "shrink-0 object-contain transition-all duration-300",
+              scrolled ? "h-9 w-9" : "h-12 w-12 brightness-0 invert"
             )}
             loading="eager"
           />
 
-            <span className="flex flex-col leading-none">
-              <span className="text-lg font-semibold tracking-[0.22em] text-brand-navy">AEC</span>
-              <span className="mt-1 text-[11px] font-semibold tracking-[0.18em] uppercase text-brand-navy/70">
-                Agile Engineering Consultants
-              </span>
+          <span className="flex flex-col leading-none transition-colors duration-300">
+            <span className={cn("text-lg font-semibold tracking-[0.22em]", scrolled ? "text-brand-navy" : "text-white")}>AEC</span>
+            <span className={cn("mt-1 text-[11px] font-semibold tracking-[0.18em] uppercase", scrolled ? "text-brand-navy/70" : "text-white/80")}>
+              Agile Engineering Consultants
             </span>
+          </span>
         </a>
 
         {isMobile ? (
@@ -92,7 +97,10 @@ export function AecHeader({ primaryLinks, moreLinks = [] }: AecHeaderProps) {
               <Button
                 variant="outline"
                 size="icon"
-                className="border-border bg-transparent text-brand-navy hover:bg-accent"
+                className={cn(
+                  "border-transparent bg-transparent hover:bg-white/10",
+                  scrolled ? "text-brand-navy" : "text-white"
+                )}
                 aria-label="Open navigation menu"
               >
                 <Menu />

@@ -8,6 +8,8 @@ import { OrganizationChart } from "@/components/aec/OrganizationChart";
 import { ProjectsList } from "@/components/aec/ProjectsList";
 import { ServicesGrid } from "@/components/aec/ServicesGrid";
 import { ValuesGrid } from "@/components/aec/ValuesGrid";
+import { ParallaxSection } from "@/components/aec/ParallaxSection";
+import { BackToTop } from "@/components/aec/BackToTop";
 
 const primaryNavLinks = [
   { id: "introduction", label: "About" },
@@ -130,6 +132,9 @@ const Index = () => {
             </ul>
           </Section>
         </FadeIn>
+
+        {/* 4.5) PARALLAX SECTION */}
+        <ParallaxSection />
 
         {/* 5) VALUES */}
         <FadeIn>
@@ -286,6 +291,8 @@ const Index = () => {
           </div>
         </section>
       </main>
+
+      <BackToTop />
     </div>
   );
 };

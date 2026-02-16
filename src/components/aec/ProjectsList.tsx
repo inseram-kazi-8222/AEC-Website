@@ -171,34 +171,56 @@ const categories: ProjectCategory[] = [
   },
 ];
 
+interface ProjectItemProps {
+  title: string;
+  location: string;
+  stage: string;
+  imageSrc?: string;
+  onOpen: () => void;
+}
+
 function ProjectItem({
   title,
   location,
   stage,
+  imageSrc,
   onOpen,
-}: {
-  title: string;
-  location: string;
-  stage: string;
-  onOpen: () => void;
-}) {
+}: ProjectItemProps) {
   return (
-    <button type="button" onClick={onOpen} className="text-left">
-      <Card className="shadow-none break-inside-avoid transition-[transform,box-shadow,border-color] hover:-translate-y-0.5 hover:shadow-md hover:border-primary/30">
-        <CardContent className="p-6">
-          <div className="text-sm font-semibold text-foreground">{title}</div>
-          <div className="mt-2 text-sm text-muted-foreground">
-            <div>Location – {location}</div>
-            <div>Stage – {stage}</div>
+    <button type="button" onClick={onOpen} className="group relative block w-full overflow-hidden rounded-xl bg-muted text-left shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
+      {/* Image with zoom effect */}
+      <div className="aspect-[16/10] w-full overflow-hidden">
+        {imageSrc ? (
+          <img
+            src={imageSrc}
+            alt={title}
+            className="h-full w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+            loading="lazy"
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-secondary text-muted-foreground">
+            No Image
           </div>
-          <div className="mt-4 text-xs font-semibold tracking-[0.18em] uppercase text-primary">
-            View details
+        )}
+
+        {/* Dark overlay fade-in */}
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-80" />
+      </div>
+
+      {/* Content Overlay */}
+      <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+        <div className="translate-y-2 transform transition-transform duration-300 group-hover:translate-y-0">
+          <div className="text-xs font-semibold tracking-widest text-brand-orange uppercase mb-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            {stage}
           </div>
-        </CardContent>
-      </Card>
+          <h4 className="text-lg font-bold leading-tight drop-shadow-md mb-1">{title}</h4>
+          <p className="text-sm text-white/80 line-clamp-1">{location}</p>
+        </div>
+      </div>
     </button>
   );
 }
+
 
 export function ProjectsList() {
   const [open, setOpen] = React.useState(false);
@@ -256,6 +278,7 @@ export function ProjectsList() {
                   location={p.location}
                   stage={p.stage}
                   onOpen={() => openProject(p)}
+                  imageSrc={projectTitleToImage[p.title]}
                 />
               ))}
             </div>
