@@ -76,18 +76,42 @@ const Index = () => {
                 </p>
               </div>
 
-              <div className="grid gap-3 sm:grid-cols-3">
-                <div className="break-inside-avoid rounded-lg border border-border bg-card p-5">
-                  <div className="text-2xl font-semibold tracking-tight text-foreground">20+</div>
-                  <div className="mt-1 text-sm text-muted-foreground">Years industry experience</div>
+              <div className="mt-8 grid gap-6 sm:grid-cols-3">
+                {/* Card 1 */}
+                <div className="group relative isolate">
+                  {/* Individual soft glow behind */}
+                  <div className="absolute -inset-2 -z-10 rounded-3xl bg-brand-electric/20 opacity-70 blur-2xl transition-all duration-500 group-hover:bg-brand-electric/30 group-hover:opacity-100" />
+
+                  <div className="break-inside-avoid overflow-hidden rounded-2xl border border-white/10 bg-brand-navy/80 p-6 shadow-xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-brand-navy/90 hover:shadow-2xl">
+                    <div className="relative">
+                      <div className="text-4xl font-bold tracking-tight text-white drop-shadow-sm">20+</div>
+                      <div className="mt-2 text-sm font-medium tracking-wide text-white/80">Years industry experience</div>
+                    </div>
+                  </div>
                 </div>
-                <div className="break-inside-avoid rounded-lg border border-border bg-card p-5">
-                  <div className="text-2xl font-semibold tracking-tight text-foreground">100+</div>
-                  <div className="mt-1 text-sm text-muted-foreground">Projects delivered</div>
+
+                {/* Card 2 */}
+                <div className="group relative isolate">
+                  <div className="absolute -inset-2 -z-10 rounded-3xl bg-brand-lime/20 opacity-70 blur-2xl transition-all duration-500 group-hover:bg-brand-lime/30 group-hover:opacity-100" />
+
+                  <div className="break-inside-avoid overflow-hidden rounded-2xl border border-white/10 bg-brand-navy/80 p-6 shadow-xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-brand-navy/90 hover:shadow-2xl">
+                    <div className="relative">
+                      <div className="text-4xl font-bold tracking-tight text-white drop-shadow-sm">100+</div>
+                      <div className="mt-2 text-sm font-medium tracking-wide text-white/80">Projects delivered</div>
+                    </div>
+                  </div>
                 </div>
-                <div className="break-inside-avoid rounded-lg border border-border bg-card p-5">
-                  <div className="text-2xl font-semibold tracking-tight text-foreground">UAE</div>
-                  <div className="mt-1 text-sm text-muted-foreground">& Middle East presence</div>
+
+                {/* Card 3 */}
+                <div className="group relative isolate">
+                  <div className="absolute -inset-2 -z-10 rounded-3xl bg-brand-electric/20 opacity-70 blur-2xl transition-all duration-500 group-hover:bg-brand-electric/30 group-hover:opacity-100" />
+
+                  <div className="break-inside-avoid overflow-hidden rounded-2xl border border-white/10 bg-brand-navy/80 p-6 shadow-xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-brand-navy/90 hover:shadow-2xl">
+                    <div className="relative">
+                      <div className="text-4xl font-bold tracking-tight text-white drop-shadow-sm">UAE</div>
+                      <div className="mt-2 text-sm font-medium tracking-wide text-white/80">& Middle East presence</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
