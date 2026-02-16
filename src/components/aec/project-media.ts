@@ -16,6 +16,13 @@ import g1VillaAlQusais from "@/assets/projects/g1-villa-al-qusais-dubai-uae.png"
 import bg1VillaAlKhawaneej from "@/assets/projects/bg1-villa-al-khawaneej-2-dubai-uae.png";
 import g1VillaAlMamzar from "@/assets/projects/g1-villa-al-mamzar-dubai-uae.png";
 import abdullaAlKhaja from "@/assets/projects/abdulla-al-khaja-al-awir-first-dubai-uae.png";
+import g4ResidentialBuilding from "@/assets/projects/g4-residential-building-dubai-south-uae.png";
+import g2LabourAccommodation from "@/assets/projects/g2-labour-accommodation-dubai-uae.png";
+import frontElevationDevelopment from "@/assets/projects/front-elevation-development-al-manara-dubai-uae.png";
+import g1ResidentialBuildingAlKhawaneej from "@/assets/projects/g1-residential-building-al-khawaneej-uae.png";
+import artGalleryJumaira from "@/assets/projects/art-gallery-jumaira-uae.png";
+import adbLuxuryCarServices from "@/assets/projects/adb-luxury-car-services-dip-dubai-uae.png";
+import g1WorkshopOfficeBlockInterOceanPromise from "@/assets/projects/g1-workshop-office-block-inter-ocean-ship-engineering-services.png";
 
 export const projectTitleToImage: Record<string, string> = {
   "B+G+P+14 Floor Residential apartments": bgp14ResidentialApartments,
@@ -36,4 +43,11 @@ export const projectTitleToImage: Record<string, string> = {
   "B+G+1 Villa": bg1VillaAlKhawaneej,
   "G+1 Villa (Al Mamzar)": g1VillaAlMamzar,
   "Abdulla Al Khaja": abdullaAlKhaja,
+  "G+4 Residential Building": g4ResidentialBuilding,
+  "G+2 Labour Accommodation": g2LabourAccommodation,
+  "Front Elevation Development": frontElevationDevelopment,
+  "Art Gallery": artGalleryJumaira,
+  "ADB Luxury Car Services": adbLuxuryCarServices,
+  "G+1 Workshop and Office Block – Inter Ocean Ship Engineering Services FZE": g1WorkshopOfficeBlockInterOceanPromise,
+  "G+1 Residential Building": g1ResidentialBuildingAlKhawaneej,
 };
