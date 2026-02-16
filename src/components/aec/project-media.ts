@@ -23,6 +23,9 @@ import g1ResidentialBuildingAlKhawaneej from "@/assets/projects/g1-residential-b
 import artGalleryJumaira from "@/assets/projects/art-gallery-jumaira-uae.png";
 import adbLuxuryCarServices from "@/assets/projects/adb-luxury-car-services-dip-dubai-uae.png";
 import g1WorkshopOfficeBlockInterOceanPromise from "@/assets/projects/g1-workshop-office-block-inter-ocean-ship-engineering-services.png";
+import someoneStageTheatre from "@/assets/projects/2b-g-2m-rf-someone-stage-theatre.png";
+import g1RfResidentialVillaDamacHills2 from "@/assets/projects/g1-rf-residential-villa-damac-hills-2.png";
+import g5LabourAccommodationAlWarsan2 from "@/assets/projects/g5-labour-accommodation-al-warsan-2.png";
 
 export const projectTitleToImage: Record<string, string> = {
   "B+G+P+14 Floor Residential apartments": bgp14ResidentialApartments,
@@ -50,4 +53,7 @@ export const projectTitleToImage: Record<string, string> = {
   "ADB Luxury Car Services": adbLuxuryCarServices,
   "G+1 Workshop and Office Block – Inter Ocean Ship Engineering Services FZE": g1WorkshopOfficeBlockInterOceanPromise,
   "G+1 Residential Building": g1ResidentialBuildingAlKhawaneej,
+  "2B+G+2M+RF SOMEONE STAGE OFFICE BUILDING": someoneStageTheatre,
+  "G+1+RF Residential Villa": g1RfResidentialVillaDamacHills2,
+  "G+5 Labour Accommodation": g5LabourAccommodationAlWarsan2,
 };
